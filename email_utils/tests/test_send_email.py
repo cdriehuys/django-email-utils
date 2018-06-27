@@ -121,4 +121,3 @@ def test_send_email_neither(mock_send, mock_render_to_string):
         email_utils.send_email('foo')
 
     assert mock_send.call_count == 0
-
