@@ -3,6 +3,32 @@ from django.template import TemplateDoesNotExist
 from django.template.loader import render_to_string
 
 
+class NoTemplatesException(Exception):
+    """
+    Exception indicating no templates could be loaded.
+    """
+    def __init__(self, template_base):
+        """
+        Args:
+            template_base:
+                The base name used to look up plain text and HTML
+                templates.
+        """
+        self.base = template_base
+
+    def __str__(self):
+        """
+        Get a string representation of the instance.
+
+        Returns:
+            A string indicating the templates that could not be found.
+        """
+        return "Could not find the template '{html}' or '{text}'.".format(
+            html='{}.html'.format(self.base),
+            text='{}.txt'.format(self.base),
+        )
+
+
 def send_email(template_name, context=None, *args, **kwargs):
     """
     Send a templated email.
@@ -29,10 +55,13 @@ def send_email(template_name, context=None, *args, **kwargs):
     """
     context = context or {}
 
-    html = render_to_string(
-        context=context,
-        template_name='{}.html'.format(template_name),
-    )
+    try:
+        html = render_to_string(
+            context=context,
+            template_name='{}.html'.format(template_name),
+        )
+    except TemplateDoesNotExist:
+        html = ''
 
     try:
         text = render_to_string(
@@ -41,6 +70,9 @@ def send_email(template_name, context=None, *args, **kwargs):
         )
     except TemplateDoesNotExist:
         text = ''
+
+    if not html and not text:
+        raise NoTemplatesException(template_name)
 
     return mail.send_mail(
         *args,

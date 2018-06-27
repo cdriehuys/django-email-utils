@@ -7,6 +7,8 @@ from django.template import TemplateDoesNotExist
 
 import email_utils
 
+import pytest
+
 
 html_message = '<p>An <strong>HTML</strong> message.</p>'
 text_message = 'A plain text message.'
@@ -104,3 +106,19 @@ def test_send_email_html(mock_send, mock_render_to_string):
         'html_message': html_message,
         'message': '',
     }
+
+
+@mock.patch('email_utils.render_to_string')
+@mock.patch('email_utils.mail.send_mail')
+def test_send_email_neither(mock_send, mock_render_to_string):
+    """
+    If neither template can be loaded, an exception should be thrown and
+    no email should be sent.
+    """
+    mock_render_to_string.side_effect = TemplateDoesNotExist('foo')
+
+    with pytest.raises(email_utils.NoTemplatesException):
+        email_utils.send_email('foo')
+
+    assert mock_send.call_count == 0
+
