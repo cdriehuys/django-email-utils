@@ -1,4 +1,5 @@
 from django.core import mail
+from django.template import TemplateDoesNotExist
 from django.template.loader import render_to_string
 
 
@@ -32,10 +33,14 @@ def send_email(template_name, context=None, *args, **kwargs):
         context=context,
         template_name='{}.html'.format(template_name),
     )
-    text = render_to_string(
-        context=context,
-        template_name='{}.txt'.format(template_name),
-    )
+
+    try:
+        text = render_to_string(
+            context=context,
+            template_name='{}.txt'.format(template_name),
+        )
+    except TemplateDoesNotExist:
+        text = ''
 
     return mail.send_mail(
         *args,
