@@ -52,6 +52,10 @@ def send_email(template_name, context=None, *args, **kwargs):
     Returns:
         ``1`` if the email is succesfully sent and ``0`` otherwise. The
         return values come from Django's ``send_mail`` function.
+
+    Throws:
+        NoTemplatesException:
+            If neither the HTML nor plain text template can be loaded.
     """
     context = context or {}
 
