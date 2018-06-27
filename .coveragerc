@@ -1,0 +1,4 @@
+[run]
+branch = True
+omit = */tests/*,
+source = rest_email_auth
