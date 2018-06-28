@@ -53,7 +53,7 @@ jobs:
           secure: "qiqX4jeX8JbUu4sOCQ0D7+KNl2O4upEqHWUE6y7JkJf7FfJdbucYvVpEk2AyONRFsHcZIzDUAD6j8iKxeJGei/HoD6nrlqrmMmAz/fdnpwCMI9/VWTNoend7e/6HR9nkc6KqYVZ4F+UrEg6tlai/L/ZiL9T+Ro6FKe2DnorYxbo6lyV4RAD1nRpBrRijXx9AjacaYUsp4AvAbfiYoJW2Q/x68Ghud+pSGQfg3x1X31/kInCxgGiDmDGASB/DFEUUnSujf8Ij7D+ZRVRdopyjCUmPNtFHI8iRMuzzGh2aN2Fm9z87jp2NwWQsJB5T3ITMUBpba/G/9WZ/tZfKeXwht7kYPZoHUEhGvFn5YooBY4EKLo0QtV2CtBPWJxSm6owjNc+my51EV8DYeehK+CxCRRrP+q/eO68Yg8+M8GgCcADVTaN7i4qngZZMYiyP4F4eC4S5oZ6xbGZgFrPhNLfG4dGuCXSy1iJy0Rb7Gf+e7FWsPYV9r/3kMeFp617waxYQsibjjTXCyQaRSpWJf7SgWMk9VRR1L9agtEWKKkyWIg7AbzrysK4TVQJTx0T0mfzZtM+NEesIB9NI4X8aUqSiGwDoUKMA3DHQjVpxVC1pVbnuZh8qpiZnPUtApKSn4Em9hPaMMfT7f2jvm/1v6EFm4RS8RBij3j+txvirRuEm2mY="
         distributions: sdist bdist_wheel
         on:
-tags: yes
+          tags: yes
 
 notifications:
   email:

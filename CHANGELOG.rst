@@ -4,6 +4,13 @@ Changelog
 
 
 ******
+v0.1.1
+******
+
+Fix automatic deployment with Travis CI.
+
+
+******
 v0.1.0
 ******
 
