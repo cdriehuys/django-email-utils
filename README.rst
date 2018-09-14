@@ -6,7 +6,7 @@ django-email-utils
     :alt: Travis CI Status
     :target: https://travis-ci.com/cdriehuys/django-email-utils
 
-.. image:: https://img.shields.io/codecov/c/github/codecov/example-python.svg
+.. image:: https://img.shields.io/codecov/c/github/cdriehuys/django-email-utils.svg
     :alt: Codecov
     :target: https://codecov.io/gh/cdriehuys/django-email-utils
 
