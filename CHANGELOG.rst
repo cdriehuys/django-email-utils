@@ -2,6 +2,15 @@
 Changelog
 #########
 
+**************
+In Development
+**************
+
+Breaking Changes:
+
+* Dropped support for Python versions before 3.5.
+* Dropped support for Django versions before 2.2.
+
 
 ******
 v0.1.1
