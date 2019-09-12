@@ -9,7 +9,7 @@ def get_description():
 setup(
     # Package meta-data
     name='django-email-utils',
-    version='0.1.1',
+    version='1.0.0',
     description='Django utility for sending email messages.',
     long_description=get_description(),
     author='Chathan Driehuys',
